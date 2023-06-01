@@ -71,7 +71,7 @@ def extract(soure_pdf: str, target_csv: str, kw_limit: Optional[int] = typer.Arg
 
 
 if not SERVER_URL:
-    print("Error: SERVER_URL not found.\n   please type export SERVER_URL = <server url>")
+    print("Error: SERVER_URL not found.\n   please type export SERVER_URL=<server url>")
     exit(1)
 
 
