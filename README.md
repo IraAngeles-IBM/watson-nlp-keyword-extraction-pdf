@@ -21,7 +21,7 @@ pip install -r requirements.txt
 Ensure you have the Watson NLP Server URL before you run the program
 
 ```sh
-export SERVER_URL={https://watson-nlp-server}
+export SERVER_URL=<watson nlp server URL>
 ```
 
 To execute the program
