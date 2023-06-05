@@ -16,6 +16,7 @@ headers = {
     }
 
 main_app = typer.Typer()
+default_keywords_limit = 100;
 
 # extracts keywords from text using library API
 
@@ -44,13 +45,13 @@ def extract_keywords(text, limit):
 
 
 @main_app.command()
-def extract(soure_pdf: str, target_csv: str, kw_limit: Optional[int] = typer.Argument(None, help="")):
+def extract(soure_pdf: str = typer.Argument(..., help='Filename of the PDF file to extracted'), target_csv: str = typer.Argument(..., help='CSV filename of the extracted Keywords'), kw_limit: Optional[int] = typer.Argument(None, help='Number of Keywords to extract [default: 100] [optional]')):
     reader = PdfReader(soure_pdf)
     numpages = len(reader.pages)
     page = reader.pages[0]
 
     if not kw_limit:
-        kw_limit = 100
+        kw_limit = default_keywords_limit
 
     print("Extracting Text from PDF file.")
 
